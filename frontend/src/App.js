@@ -7,11 +7,13 @@ import Dashboard from './pages/Dashboard';
 import Editor from './pages/Editor';
 import PostDetail from './pages/PostDetail';
 import PublicPosts from './pages/PublicPost';
+import Profile from './pages/Profile';
+import Users from './pages/Users';
 
 function App() {
   const { currentUser } = useAppContext();
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    <div className={currentUser ? '' : 'bg-gray-100 dark:bg-gray-900 min-h-screen'}>
       <Navbar />
       <div className="container mx-auto p-4">
         <Routes>
@@ -32,6 +34,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/editor" element={<Editor />} />
           <Route path="/editor/:id" element={<Editor />} />
+          <Route path="/profile" element={currentUser ? <Profile /> : <Navigate to="/login" replace />} />
+          <Route path="/users" element={currentUser && currentUser.role === 'Admin' ? <Users /> : <Navigate to={currentUser ? "/dashboard" : "/login"} replace />} />
         </Routes>
       </div>
     </div>

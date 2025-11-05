@@ -20,13 +20,16 @@ const Navbar = () => {
           {currentUser ? (
             <>
               <Link to="/dashboard" className="mr-4 hover:underline">Mes Articles</Link>
+              {currentUser.role === 'Admin' && (
+                <Link to="/users" className="mr-4 hover:underline">Gestion Utilisateurs</Link>
+              )}
+              <Link to="/profile" className="mr-4 hover:underline">Mon Compte</Link>
               <button
                 onClick={handleLogout}
                 className="bg-red-600 text-white font-medium px-4 py-2 rounded-xl shadow-md hover:bg-red-700 transition-all duration-200 hover:shadow-lg active:scale-95"
               >
                 Déconnexion
               </button>
-
             </>
           ) : (
             <>

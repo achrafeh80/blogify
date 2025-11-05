@@ -18,7 +18,8 @@ const Signup = () => {
     const form = e.target;
     const username = form.username.value;
     const password = form.password.value;
-    const success = signup(username, password);
+    const role = form.role.value;
+    const success = signup(username, password, role);
     if (!success) {
       setError("Ce nom d'utilisateur est déjà utilisé.");
     } else {
@@ -46,6 +47,14 @@ const Signup = () => {
           required 
           className="w-full p-2 mb-4 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
         />
+        <select 
+          name="role" 
+          className="w-full p-2 mb-4 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
+        >
+          <option value="Author">Auteur</option>
+          <option value="Editor">Éditeur</option>
+          <option value="Admin">Administrateur</option>
+        </select>
         <button 
           type="submit" 
           className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
