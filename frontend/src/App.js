@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAppContext } from './context/BlogContext';
 import Navbar from './components/Navbar';
@@ -7,7 +6,7 @@ import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Editor from './pages/Editor';
 import PostDetail from './pages/PostDetail';
-import PublicPosts from './pages/PublicPosts';
+import PublicPosts from './pages/PublicPost';
 
 function App() {
   const { currentUser } = useAppContext();

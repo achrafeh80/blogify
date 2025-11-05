@@ -14,13 +14,19 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-200 dark:bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/posts" className="text-xl font-bold">Blogify</Link>
+        <Link to="/posts" className="text-4xl font-bold">Blogify</Link>
         <div>
           <Link to="/posts" className="mr-4 hover:underline">Articles</Link>
           {currentUser ? (
             <>
-              <Link to="/dashboard" className="mr-4 hover:underline">Dashboard</Link>
-              <button onClick={handleLogout} className="mr-4 hover:underline">Déconnexion</button>
+              <Link to="/dashboard" className="mr-4 hover:underline">Mes Articles</Link>
+              <button
+                onClick={handleLogout}
+                className="bg-red-600 text-white font-medium px-4 py-2 rounded-xl shadow-md hover:bg-red-700 transition-all duration-200 hover:shadow-lg active:scale-95"
+              >
+                Déconnexion
+              </button>
+
             </>
           ) : (
             <>
